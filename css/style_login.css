@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Mochiy+Pop+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+
+
+.login{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0d0d0d;
+    padding: 2rem;
+}
+
+.login-card{
+    max-width: 900px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    
+}
+
+.login-form{
+    background: white;
+    width: 40%;
+    height: 100%;
+    order: 1;
+    padding-inline: 1rem;
+    padding-block: 2rem;
+}
+
+.login-card-img{
+    width: 60%;
+    height: 100%;
+    order: 2;
+    background: #8C041D;
+    position: relative;
+}
+
+
+.login-card-img::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgb(255, 4, 27);
+    mix-blend-mode: overlay;
+}
+
+.login-card-img img{
+    width: 100%;
+    height: 100%;
+    order: 2;
+}
+
+.login-card-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+}
+
+.login-form h1{
+    font-size: 1.9rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: #252525;
+    margin-bottom: 2rem;
+}
+
+.login-form label{
+    font-size: 0.9rem;
+    color: #868686;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"]{
+    width: 100%;
+    background: rgba(196, 196, 196, 0.216);
+    padding-block: 0.5rem;
+    padding-inline: 0.5rem;
+    outline: none;
+    margin-bottom: 1rem;
+}
+
+.login-form input[type="submit"]{
+    width: 100%;
+    background: rgb(255, 4, 27);
+    padding-block: 0.5rem;
+    padding-inline: 0.5rem;
+    color: white;
+    font-size: 1rem;
+    letter-spacing: 0.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: background 350ms ease;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+
+.btn-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.btn-icon-twitter{
+    color: white;
+    background: #1DA1F2;
+    padding-block: 0.5rem;
+    padding-inline: 0.5rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+.btn-icon-facebook{
+    color: white;
+    background: #4267B2;
+    padding-block: 0.5rem;
+    padding-inline: 0.5rem;
+    margin-bottom: 1rem;
+}
+.btn-icon a{
+    color: white;
+    text-decoration: none;
+    margin-left: 1rem;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.login-form input[type="submit"]:hover{
+    background: #8C041D;  
+}
+
+.cadastro{
+    margin-block: auto;
+    width: 100%;
+    color: #252525;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.cadastro-enfase{
+    color: #8C041D;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+@media(max-width:1022px){
+
+    .login-card-text{
+        font-size: 2rem;
+    
+    }
+}
+@media (max-width:759px){
+    .login-card{
+        flex-direction: column;
+        height: 950px;
+    }
+
+    .login-form{
+        width:100%;
+        height:50%;
+        order: 2;
+
+    }
+    
+    .login-card-img{
+        width: 100%;
+        height: 50%;
+        order: 1;
+    }
+    
+    .login-card-text{
+        font-size: 2rem;
+    
+    }
+
+    
+}
+
+@media(max-width: 452px){
+    .login-card{
+        flex-direction: column;
+        height: 950px;
+    }
+
+    .login-form{
+        width: 100%;
+        height: 50%;
+        order: 2;
+        padding: 2rem;
+
+    }
+    .login-card-text{
+        font-size: 2rem;
+    
+    }
+}
+
+@media(max-width:410px){
+    .login-card{
+        
+    }
+    .login-form{
+        width:100%;
+        height:60%;
+        order: 2;
+
+    }
+    
+    .login-card-img{
+        width: 100%;
+        height: 40%;
+        order: 1;
+    }
+}

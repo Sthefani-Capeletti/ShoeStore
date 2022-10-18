@@ -1,0 +1,689 @@
+/* Importando fontes */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Mochiy+Pop+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Resetando o HTML */
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+/* Containers */
+.container{
+    width: min(90%,1100px);
+    margin-inline: auto;
+    padding: 2rem;
+}
+
+.home-grid{
+    display: grid;
+    /* Esse grid terá uma coluna de tamano igual */
+    grid-template-columns: 1fr;
+    /* Terá três linhas (uma de tamanho 15vh,
+    outra de 80vh e a ultima de tamanho 5vh */
+    grid-template-rows: 10rem 80vh 5vh;
+    /* navbar ficará na linha um (tamanho 10rem, depois 80vh, etc*/
+    grid-template-areas:  
+    "navbar"
+    "hero"
+    "brands";
+    
+}
+
+/* Configurações parágrafos, títulos */
+.titulo1{
+    color: #8C0707;
+    letter-spacing: 0.5rem;
+    font-size: 2.5rem;
+    padding-block: 1rem;
+    text-align: center;
+}
+.titulo1-white{
+    color: #f2f2f2;
+    letter-spacing: 0.5rem;
+    font-size: 2.5rem;
+    padding-block: 1rem;
+}
+.titulo2{
+    color: #8C0707;
+    letter-spacing: 0.5rem;
+    font-size: 1.5rem;
+}
+.titulo2-white{
+    color: #f2f2f2;
+    letter-spacing: 0.5rem;
+    font-size: 1.5rem;
+}
+.paragrafo1{
+    color: rgba(58, 58, 58);
+    line-height: 2rem;
+    text-align: left;
+}
+
+/* Navbar */
+nav {
+    position: fixed;
+    background: #0d0d0d;
+    width: 100vw;
+    height: 10rem; /* Mesma heigth q foi definita na row */
+    padding: 1rem;
+    z-index: 1000;
+    grid-area: navbar;
+}
+
+.navbar-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.navbar-logo{
+    color: #D9042B;
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: bolder;
+    letter-spacing: 0.2rem;
+    margin-left: 2rem;
+}
+
+.navbar-items{
+    display: flex;
+}
+
+.navbar-search{
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar-search input{
+    padding:0.5rem;
+    border-radius:5px;
+    outline: none;
+    color: black;
+}
+
+.icon-search{
+    color: #0d0d0d;
+    position: absolute;
+    right: 4%;
+    top: 20%;
+    cursor: pointer;
+    transition: scale 350ms ease;
+}
+.icon-search:hover{
+    transform: scale(1.2);
+    color: #D9042B;
+}
+
+.navbar-items li{
+    list-style: none;
+    /* Para alinhar */
+    transform: translateY(12%);
+}
+
+.navbar-items li a{
+    color: white;
+    text-decoration: none;
+    padding-inline: 3rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    letter-spacing: 0.2rem;
+    text-transform: capitalize;
+    font-weight: 300;
+    transition: color 350ms ease;
+    
+}
+
+.navbar-items li a:hover{
+    color: #D9042B
+}
+
+/* Botões abrir/fechar menu */
+.icon{
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    display: none;
+    transition: scale 350ms ease-in-out, color 350ms ease;
+}
+.icon:hover{
+    color: rgb(170, 170, 170);
+    transform: scale(1.2);
+}
+
+/* Sub-menu */
+.sub-menu{
+  /* Para deslogar o nosso sub-menu um pouco para */
+   transform: translateY(20%);
+}
+.sub-menu ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.sub-menu li{
+   list-style: none;
+}
+.sub-menu a{
+    text-decoration: none;
+    color: white;
+    letter-spacing: 0.5rem;
+}
+.sub-menu li:hover{
+    transform: scale(1.1);
+}
+
+/* Hero */
+.hero{
+    grid-area: hero;
+    height: 80vh; /* Mesma heigth da segunda row criada pra o home-grid*/
+    width: 100vw;
+}
+
+.swiper {
+    width: 100vw;
+    height: 80vh;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    /* Adicionei essa cor de background no container de
+    cada slide para que, ao dar uma opacidade menor na imagem,
+    ela fica meio "escurecida" por conta do 0d0d0d */
+    background: #0d0d0d !important; 
+  }
+  
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Adicionamos o position relative, pois
+    queremos que o texto seja absolute em relação a img */
+    position: relative;
+    opacity: 0.5; 
+    /* Adicionamos uma opacidade baixa, mas n ficará
+    mt claro pois adicionados um background: #0d0d0d
+    no container de cada slide */
+  }
+ 
+  /* Criamos essa caixa para posicionar o slider */
+  .swiper-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: left;
+  }
+
+  .swiper-text h1{
+    color: white;
+    text-transform: uppercase;
+    font-size: 4rem;
+    line-height: 4rem;
+    text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  }
+  .swiper-text p{
+    color: white;
+    max-width: 780px;
+    line-height: 1.8rem;
+  }
+
+  /* Formatação da progressbar e pagination */
+  .swiper-pagination-progressbar-fill {
+    border: 2px solid white;
+    border-radius: 5px;
+  }
+  
+  .swiper-pagination-progressbar {
+    background-color: rgb(171, 171, 171);
+    border-radius: 5px;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev{
+     color: white !important;
+  }
+  .swiper-button-next{
+    margin-right: 0.1rem;
+  }
+  
+/* Brands */
+.brands{
+    grid-area: brands;
+    height: 5vh; /* Mesma heigth q foi definito la no row de nosso grid*/
+    width: 100vw;
+    background: #0d0d0d;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.brands img{
+    opacity: 0.8;
+    height: 50px;
+    cursor: pointer;
+}
+
+
+/* Mais Vendidos  */
+.mais-vendidos-items{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-bottom: 2rem;
+}
+.item{
+    width: 25%;
+    height: fit-content;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 0px 1px rgba(0, 0, 0, 0.5);
+    
+}
+.item-img img{
+    width: 100%;
+    height: 50%;
+    cursor: pointer;
+}
+
+.item-content{
+    padding: 1rem;
+    text-align: left;
+}
+
+.item-title{
+    font-size: 1.1rem;
+    color: black;
+    cursor: pointer;
+}
+
+.item-text strong{
+    color: #8C041D;
+}
+.small-price, .big-price{
+    display: block;
+}
+.small-price{
+    font-size: 0.8rem;
+    text-decoration: line-through;
+    text-decoration-color: rgba(0, 0, 0, 0.5);
+}
+
+.big-price{
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Estação + Feminino Masc  */
+.estacao-fem-masc{
+    background: #f2f2f2;
+    width: 100vw;
+    height: fit-content;
+}
+.estacao-fem-masc-grid{
+    display: grid;
+    /*3 colunas iguals*/
+    grid-template-columns: 1fr 1fr 1fr;
+    /* Uma linha de 50vh*/
+    grid-template-rows:  50vh;
+    grid-template-areas: 
+    "estacao fem masc"
+    "estacao fem masc";
+    gap: 1rem;
+
+}
+
+.estacao {
+    grid-area: estacao;
+    position: relative;
+    background: #0d0d0d;
+    width: 100%; 
+    /* Mesmo heigth da row do nosso grid*/
+    height: 50vh;
+}
+
+.estacao img{
+    width: 100%;
+    height: 50vh; 
+    transition: opacity 350ms ease;
+    opacity: 1;
+    display: block;
+}
+
+.estacao-texto{
+    color: #f2f2f2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 300;
+    transform: translate(-50%,-50%);
+    transition: opacity 100ms ease 130ms;
+}
+
+.estacao:hover img {
+    opacity: 0.4;
+}
+
+.estacao:hover .estacao-texto{
+    opacity: 1;
+}
+
+.estacao::after,
+.estacao::before{
+    content: "";
+    position: absolute;
+    top: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+}
+
+.estacao::before{
+    transform: scale(0,1);
+    transition: transform 350ms ease ;
+}
+.estacao::after{
+    transform: scale(1,0);
+    transition: transform 350ms ease 50ms;
+}
+.estacao:hover::before{
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    transform: scale(1,1);
+}
+.estacao:hover::after{
+    border-bottom: 2px solid white;
+    border-top: 2px solid white;
+    transform: scale(1,1);
+}
+
+.fem{
+    grid-area: fem;
+    width: 100%;
+    height: 50vh;
+    position: relative;
+    overflow: hidden;
+    background: #0d0d0d;
+}
+
+.masc{
+    grid-area: masc;
+    width: 100%;
+    height: 50vh;
+    position: relative;
+    overflow: hidden;
+    background: #0d0d0d;
+}
+
+.fem img,
+.masc img{
+    width: 100%;
+    height: 50vh;
+    transition: transform 350ms ease;
+}
+
+.desc{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    font-size: 1.2rem;
+    letter-spacing: 0.5rem;
+    cursor: pointer;
+    font-weight: 300;
+    opacity: 0;
+}
+
+.fem:hover img,
+.masc:hover img{
+    opacity: 0.5;
+}
+
+.fem img:hover,
+.masc img:hover{
+    transform: scale(1.1);
+}
+
+.fem:hover .desc,
+.masc:hover .desc{
+    opacity: 1;
+}
+
+/* Também temos */
+.tambem-temos-flex{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 1rem;
+}
+
+.tambem-temos-item{
+    width: 100px;
+    height: 100px;
+   
+}
+.tambem-temos-img{
+    border-radius: 50%;
+    background: #f2f2f2;
+    overflow: hidden;
+}
+.tambem-temos-img img{
+    width: 100%;
+    transform: scale(0.8);
+    border-radius: 50%;
+    transition: transform 350ms ease;
+}
+.tambem-temos-img img:hover{
+    transform: scale(1);
+    
+}
+.tambem-temos-text{
+    margin-top: 0.2rem;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+/* Footer */
+.footer{
+    background: #0d0d0d;
+    width: 100vw;
+    height: fit-content;
+}
+footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.footer-info strong{
+    color: #c3c0c0;
+    letter-spacing: 0.3rem;
+}
+
+.footer-info p{
+    color: #c3c0c0;
+    line-height: 2rem;
+}
+
+.footer-info .social-media{
+    color: #c3c0c0;
+    text-decoration: none;
+    font-size: 2.5rem;
+}
+.footer-info .social-media:hover{
+    color: #D9042B;
+}
+
+.barrinha{
+    border-top: 1px solid rgb(151, 148, 148);
+    
+}
+
+.copyrigth{
+    color: #c3c0c0;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* @media  */
+@media(max-width:1308px){
+    /* Navbar */
+    .navbar-items{
+        position: fixed;
+        top: 0;
+        left: -500%;
+        background: #0d0d0df5;
+        flex-direction: column;
+        height: 100vh;
+        width: min(100vw,350px);
+        text-align: start;
+        transition: left 350ms ease;
+        z-index: 3000;
+    }
+    .navbar-items li{
+        margin-block: auto;
+        
+    }
+
+    .navbar-search{
+        margin-inline: auto;
+    }
+    .btn-close{
+        margin-inline: auto;
+        padding: 1.5rem;
+    }
+
+    .btn-open{
+        /* Mesmo valor da margem-left do logo/brand */
+        margin-right: 2rem;
+    }
+    .navbar-items li a{
+        font-size: 1.4rem;  
+    }
+
+    /* Classes que serão adicionados via JS */
+    .icon{
+        display: block;
+    }
+
+    .icon-sumir{
+        display: none;
+    }
+
+    .abrir-menu{
+        left: 0%;
+    }
+
+}
+
+@media(max-width:865px){
+    /* Diminuindo o gap */
+    .mais-vendidos-items{
+        gap: 1.3rem;
+    }
+
+    /* Aumentando a width dos items */
+    .item{
+        width: 48%;
+    
+    }
+
+    footer{
+        flex-wrap: wrap;
+      
+        
+    }
+}
+@media (max-width:676px){
+    .sub-menu ul{
+        display: none;
+    }
+    .home-grid{
+        grid-template-rows: 5rem 83vh 10vh;
+    }
+    nav{
+        height: 5rem; 
+    }
+
+    .hero{     
+        height: 83vh;        
+    }
+
+    .swiper {
+        height: 83vh;
+      }
+      .brands{
+        height: 10vh;
+    }
+    
+    /* Mudando o flex direction e aumentando o gap */
+    .mais-vendidos-items{
+        flex-direction: column;
+        gap: 2rem
+    }
+
+    .item{
+        width: 100%;
+    }
+
+
+    .estacao-fem-masc-grid{
+        grid-template-columns: 1fr;
+        grid-template-rows:  50vh 50vh 50vh;
+        grid-template-areas: 
+        "estacao"
+        "fem"
+        "masc";
+        gap: 1rem;
+       
+    }
+    
+
+    .tambem-temos-flex{
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        gap: 2.5rem;
+    }
+
+   
+    
+}
